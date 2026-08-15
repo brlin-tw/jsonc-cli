@@ -1,0 +1,38 @@
+name: jsonc
+title: JSONC CLI
+version: '1.0.2'
+summary: Read and modify JSONC documents
+description: |
+  Read and modify JSONC documents. A CLI front-end for the jsonc-parser npm package.
+
+license: MIT
+contact: oss@ricsam.dev
+website: https://github.com/ricsam/jsonc-cli
+source-code: https://github.com/ricsam/jsonc-cli.git
+issues: https://github.com/ricsam/jsonc-cli/issues
+
+base: core24
+grade: stable
+confinement: strict
+
+platforms:
+  amd64:
+  arm64:
+  armhf:
+  ppc64el:
+  riscv64:
+  s390x:
+
+apps:
+  jsonc:
+    command: bin/jsonc
+    plugs:
+      - home
+      - removable-media
+
+parts:
+  jsonc-cli:
+    plugin: npm
+    source: .
+    npm-include-node: true
+    npm-node-version: '20.20.2'
